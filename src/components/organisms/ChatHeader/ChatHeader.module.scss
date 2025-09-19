@@ -1,0 +1,47 @@
+@use '../../../styles/variables' as *;
+
+.chatHeader {
+  border-bottom: 1px solid var(--border-color);
+  background-color: var(--bg-primary);
+
+  .headerContent {
+    @include flex-between;
+    padding: var(--spacing-md);
+
+    .userInfo {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-md);
+
+      .avatar {
+        @include flex-center;
+        width: 2rem;
+        height: 2rem;
+        background-color: var(--purple);
+        color: white;
+        border-radius: var(--radius-full);
+        font-size: var(--text-sm);
+        font-weight: 600;
+      }
+
+      .userDetails {
+        .userName {
+          font-size: var(--text-lg);
+          font-weight: 600;
+          color: var(--text-primary);
+        }
+
+        .userStatus {
+          font-size: var(--text-xs);
+          color: var(--text-secondary);
+        }
+      }
+    }
+
+    .headerActions {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-sm);
+    }
+  }
+}

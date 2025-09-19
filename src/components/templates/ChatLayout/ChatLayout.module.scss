@@ -1,0 +1,9 @@
+@use '../../../styles/variables' as *;
+
+.chatLayout {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: var(--bg-primary);
+  transition: background-color var(--transition-normal);
+}

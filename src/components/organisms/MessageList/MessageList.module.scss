@@ -1,0 +1,35 @@
+@use '../../../styles/variables' as *;
+
+.messageList {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--spacing-lg) var(--spacing-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+
+  .welcomeContainer {
+    @include flex-center;
+    height: 100%;
+
+    .welcomeContent {
+      text-align: center;
+
+      .welcomeEmoji {
+        font-size: 4rem;
+        margin-bottom: var(--spacing-md);
+      }
+
+      .welcomeTitle {
+        font-size: var(--text-xl);
+        font-weight: 600;
+        color: var(--text-primary);
+        margin-bottom: var(--spacing-sm);
+      }
+
+      .welcomeText {
+        color: var(--text-secondary);
+      }
+    }
+  }
+}
