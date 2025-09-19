@@ -1,0 +1,15 @@
+@use '../../../styles/variables' as *;
+
+.typingIndicator {
+  display: flex;
+  gap: var(--spacing-md);
+
+  .typingBubble {
+    @include flex-center;
+    padding: var(--spacing-md);
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--spacing-lg);
+    border-bottom-left-radius: var(--spacing-sm);
+  }
+}

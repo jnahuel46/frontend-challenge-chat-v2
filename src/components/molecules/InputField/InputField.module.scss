@@ -1,0 +1,19 @@
+@use '../../../styles/variables' as *;
+
+.inputField {
+  display: flex;
+  gap: var(--spacing-sm);
+
+  .inputWrapper {
+    flex: 1;
+  }
+
+  .sendButton {
+    padding: 0 var(--spacing-lg);
+
+    .sendIcon {
+      width: 1rem;
+      height: 1rem;
+    }
+  }
+}

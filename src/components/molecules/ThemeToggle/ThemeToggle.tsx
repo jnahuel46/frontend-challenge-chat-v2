@@ -1,5 +1,5 @@
 import React from 'react';
-import { useTheme } from '../../../contexts/ThemeContext';
+import { useThemeStore } from '../../../stores';
 import Button from '../../atoms/Button';
 
 interface ThemeToggleProps {
@@ -7,7 +7,7 @@ interface ThemeToggleProps {
 }
 
 const ThemeToggle: React.FC<ThemeToggleProps> = ({ className = '' }) => {
-  const { theme, toggleTheme } = useTheme();
+  const { theme, toggleTheme } = useThemeStore();
 
   return (
     <Button

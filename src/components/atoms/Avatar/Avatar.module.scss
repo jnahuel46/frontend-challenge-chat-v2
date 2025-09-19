@@ -1,0 +1,36 @@
+@use '../../../styles/variables' as *;
+
+.avatar {
+  @include flex-center;
+  border-radius: var(--radius-full);
+  font-weight: 600;
+  flex-shrink: 0;
+
+  &.sm {
+    width: 1.5rem;
+    height: 1.5rem;
+    font-size: var(--text-xs);
+  }
+
+  &.md {
+    width: 2rem;
+    height: 2rem;
+    font-size: var(--text-sm);
+  }
+
+  &.lg {
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: var(--text-base);
+  }
+
+  &.user {
+    background-color: var(--primary);
+    color: white;
+  }
+
+  &.ai {
+    background-color: var(--purple);
+    color: white;
+  }
+}
