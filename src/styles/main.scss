@@ -1,0 +1,17 @@
+// Main SCSS file
+@import 'variables';
+@import 'reset';
+@import 'animations';
+
+// Set default theme
+html {
+  &[data-theme="dark"],
+  &.dark {
+    @extend [data-theme="dark"];
+  }
+}
+
+// Default to dark theme if no theme is set
+html:not([data-theme]) {
+  @extend [data-theme="dark"];
+}
