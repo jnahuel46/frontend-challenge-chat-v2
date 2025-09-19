@@ -22,7 +22,8 @@
   "license": "MIT",
   "dependencies": {
     "react": "^18.0.0",
-    "react-dom": "^18.0.0"
+    "react-dom": "^18.0.0",
+    "zustand": "^5.0.8"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^6.8.0",

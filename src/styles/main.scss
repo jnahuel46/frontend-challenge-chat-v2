@@ -1,7 +1,7 @@
 // Main SCSS file
-@import 'variables';
-@import 'reset';
-@import 'animations';
+@use 'variables';
+@use 'reset';
+@use 'animations';
 
 // Set default theme
 html {
