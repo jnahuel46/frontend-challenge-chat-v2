@@ -1,0 +1,82 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/design-tokens' as *;
+
+.messageActions {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  opacity: 0.7;
+  transition: opacity var(--transition-fast);
+  margin-left: 8px;
+}
+
+.actionButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border: none;
+  background: rgba(71, 236, 213, 0.15);
+  border-radius: var(--radius-sm);
+  color: #47ECD5;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+
+  &:hover {
+    background: rgba(71, 236, 213, 0.25);
+    color: #47ECD5;
+    transform: scale(1.1);
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+
+  svg {
+    width: 12px;
+    height: 12px;
+  }
+}
+
+.tooltip {
+  position: absolute;
+  top: -32px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: $color-zinc-dark;
+  color: white;
+  padding: 4px 8px;
+  border-radius: var(--radius-sm);
+  font-size: var(--text-xs);
+  white-space: nowrap;
+  z-index: 1000;
+  animation: tooltipFadeIn 0.3s ease-out;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 4px solid transparent;
+    border-top-color: $color-zinc-dark;
+  }
+}
+
+@keyframes tooltipFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-4px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+// Show actions on message hover
+:global(.message:hover) .messageActions {
+  opacity: 1;
+}

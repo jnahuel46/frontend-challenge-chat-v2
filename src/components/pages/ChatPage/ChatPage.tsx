@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useChatStore, useNavigationStore } from "../../../stores";
 import GlowingOrb from "../../atoms/GlowingOrb";
+import MoodIndicator from "../../atoms/MoodIndicator";
+import MessageActions from "../../atoms/MessageActions";
 import BottomNavigation from "../../organisms/BottomNavigation";
 import ThemeToggle from "../../molecules/ThemeToggle";
 import styles from "./ChatPage.module.scss";
@@ -115,14 +117,21 @@ const ChatPage: React.FC = () => {
           {/* AI Message */}
           <div className={styles.message + " " + styles.aiMessage}>
             <div className={styles.messageBubble}>
-              Hi, what would you like to chat about today?
+              <span className={styles.messageContent}>Hi, what would you like to chat about today?</span>
+              <div className={styles.messageExtras}>
+                <MoodIndicator mood="positive" />
+                <MessageActions />
+              </div>
             </div>
           </div>
 
           {/* User Message */}
           <div className={styles.message + " " + styles.userMessage}>
             <div className={styles.messageBubble}>
-              I was hoping to chat with you about my boss, Sam.
+              <span className={styles.messageContent}>I was hoping to chat with you about my boss, Sam.</span>
+              <div className={styles.messageExtras}>
+                <MessageActions />
+              </div>
             </div>
           </div>
 
@@ -135,7 +144,15 @@ const ChatPage: React.FC = () => {
                   : styles.aiMessage
               }`}
             >
-              <div className={styles.messageBubble}>{message.content}</div>
+              <div className={styles.messageBubble}>
+                <span className={styles.messageContent}>{message.content}</span>
+                <div className={styles.messageExtras}>
+                  {message.sender === "ai" && message.mood && (
+                    <MoodIndicator mood={message.mood} />
+                  )}
+                  <MessageActions />
+                </div>
+              </div>
             </div>
           ))}
 

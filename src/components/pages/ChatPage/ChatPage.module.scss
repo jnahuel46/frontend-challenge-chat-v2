@@ -178,6 +178,10 @@
 }
 
 .messageBubble {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 8px;
   padding: var(--spacing-md) var(--spacing-lg);
   border-radius: $size-chat-border-radius;
   font-size: var(--text-base);
@@ -189,6 +193,19 @@
   &.typing {
     animation: pulse 1.5s ease-in-out infinite;
   }
+}
+
+.messageContent {
+  flex: 1;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.messageExtras {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
 }
 
 .inputArea {

@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import GlowingOrb from "../../atoms/GlowingOrb";
 import UserOrb from "../../atoms/UserOrb";
+import MoodIndicator from "../../atoms/MoodIndicator";
+import { Mood } from "../../../types";
 import styles from "./VoiceInteraction.module.scss";
 
 interface VoiceInteractionProps {
@@ -13,6 +15,7 @@ const VoiceInteraction: React.FC<VoiceInteractionProps> = ({
   const [isUserSpeaking, setIsUserSpeaking] = useState(false);
   const [isAISpeaking, setIsAISpeaking] = useState(false);
   const [isRecording, setIsRecording] = useState(false);
+  const [currentMood, setCurrentMood] = useState<Mood>('neutral');
 
   const handleMicrophonePress = () => {
     setIsRecording(true);
@@ -27,6 +30,11 @@ const VoiceInteraction: React.FC<VoiceInteractionProps> = ({
     // Simulate AI response after a brief delay
     setTimeout(() => {
       setIsAISpeaking(true);
+
+      // Randomly assign a mood for demonstration
+      const moods: Mood[] = ['positive', 'thoughtful', 'neutral', 'excited'];
+      const randomMood = moods[Math.floor(Math.random() * moods.length)];
+      setCurrentMood(randomMood);
 
       // Stop AI speaking after 3 seconds
       setTimeout(() => {
@@ -44,6 +52,11 @@ const VoiceInteraction: React.FC<VoiceInteractionProps> = ({
         }`}
       >
         <GlowingOrb size="lg" />
+        {isAISpeaking && (
+          <div className={styles.moodIndicatorContainer}>
+            <MoodIndicator mood={currentMood} />
+          </div>
+        )}
       </div>
 
       {/* User Orb */}

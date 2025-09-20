@@ -16,6 +16,8 @@
 - **UI that doesn't suck**: Tried my best to match the Figma design pixel-perfect (well, close enough)
 - **Two modes**: Landing page where you pick between chat or voice - seemed obvious but wasn't in the original design
 - **Speaking indicators**: You can actually tell when someone's talking vs when Iris is responding
+- **Mood/tone indicators**: Visual mood representation with color-coded icons that show conversation emotional context
+- **Message actions**: Retry/cancel icons for message interaction (currently show "Work in progress" tooltip)
 - **Works on your phone**: Started mobile-first
 - **Design tokens**: Finally organized all those random colors and sizes that were scattered everywhere
 - **State management**: Zustand, much more simpler and faster
@@ -37,6 +39,14 @@
 ### Making Orbs Actually Look Like They're Breathing
 
 Turns out smooth animations are harder than they look. Had to mess around with CSS keyframes until they felt natural - scale, rotation, the works. The speaking states needed to override the idle breathing without looking janky.
+
+### Implementing Mood/Tone Visual Indicators
+
+Challenge requirement was to "creatively interpret and display conversation mood/tone changes." Solved this by creating a MoodIndicator component with 5 mood states (positive, negative, excited, thoughtful, neutral) using color-coded circular icons. Each mood has its own visual representation and smooth animations.
+
+### Adding Message Interaction Controls
+
+Created retry/cancel icons for each message with "Work in progress" tooltips. These provide the foundation for future message management features - retry failed messages, cancel pending ones. Used consistent teal theming to match the app's visual language.
 
 ### Navigation That works well on Both Desktop and Mobile
 
@@ -67,6 +77,9 @@ My CSS animations are okay but Framer Motion would make them buttery smooth. Plu
 - File uploads (images, documents, whatever)
 - Proper theme switching (not just the placeholder I have now)
 - Keyboard shortcuts (for the power users)
+- **Message retry/cancel functionality**: Currently shows placeholder tooltips, would implement actual retry logic and message cancellation
+- **Advanced mood detection**: Could integrate with sentiment analysis APIs for more accurate mood detection
+- **Mood-based animations**: Different orb animations based on conversation mood/tone
 
 ### Clean Up My Code (2-3 hours)
 

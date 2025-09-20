@@ -1,0 +1,96 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/design-tokens' as *;
+
+.moodIndicator {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: var(--radius-full);
+  transition: all var(--transition-fast);
+  opacity: 0.8;
+  margin-left: 8px;
+  flex-shrink: 0;
+
+  svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  &:hover {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+
+  // Mood-specific styles
+  &.positive {
+    background-color: var(--mood-positive-bg);
+    color: var(--mood-positive-color);
+
+    &:hover {
+      background-color: var(--mood-positive-color);
+      color: white;
+    }
+  }
+
+  &.negative {
+    background-color: var(--mood-negative-bg);
+    color: var(--mood-negative-color);
+
+    &:hover {
+      background-color: var(--mood-negative-color);
+      color: white;
+    }
+  }
+
+  &.excited {
+    background-color: var(--mood-excited-bg);
+    color: var(--mood-excited-color);
+
+    &:hover {
+      background-color: var(--mood-excited-color);
+      color: white;
+    }
+  }
+
+  &.thoughtful {
+    background-color: var(--mood-thoughtful-bg);
+    color: var(--mood-thoughtful-color);
+
+    &:hover {
+      background-color: var(--mood-thoughtful-color);
+      color: white;
+    }
+  }
+
+  &.neutral {
+    background-color: var(--mood-neutral-bg);
+    color: var(--mood-neutral-color);
+
+    &:hover {
+      background-color: var(--mood-neutral-color);
+      color: white;
+    }
+  }
+
+  // Animation for new mood indicators
+  @keyframes moodPulse {
+    0% {
+      transform: scale(0.8);
+      opacity: 0.6;
+    }
+    50% {
+      transform: scale(1.2);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 0.8;
+    }
+  }
+
+  &.new {
+    animation: moodPulse 0.6s ease-out;
+  }
+}
