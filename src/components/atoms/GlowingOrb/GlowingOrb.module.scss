@@ -24,19 +24,27 @@
     height: $size-orb-normal;
   }
 
-  // Mobile responsive - 48px max
-  @media (max-width: $breakpoint-mobile) {
-    width: 48px;
-    height: 48px;
+  // Speaking state - scale up like UserOrb
+  &.speaking {
+    transform: scale($scale-speaking);
+    transition: all 0.3s ease-in-out;
+  }
 
-    &.sm, &.md, &.lg {
-      width: 48px;
-      height: 48px;
+  // Mobile responsive - keep same sizes as UserOrb for consistency
+  @media (max-width: $breakpoint-mobile) {
+    &.sm {
+      width: $size-icon-large;
+      height: $size-icon-large;
     }
 
-    .orb {
-      width: 48px;
-      height: 48px;
+    &.md {
+      width: 72px;
+      height: 72px;
+    }
+
+    &.lg {
+      width: $size-orb-normal;
+      height: $size-orb-normal;
     }
   }
 }

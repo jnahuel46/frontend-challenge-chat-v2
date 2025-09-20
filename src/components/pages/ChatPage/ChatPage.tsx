@@ -90,7 +90,10 @@ const ChatPage: React.FC = () => {
         </div>
 
         <div className={styles.orbContainer}>
-          <GlowingOrb size="sm" />
+          <GlowingOrb
+            size={isTyping ? "md" : "sm"}
+            isSpeaking={isTyping}
+          />
         </div>
 
         <div className={styles.rightActions}>
@@ -154,7 +157,7 @@ const ChatPage: React.FC = () => {
           placeholder="Message..."
           value={inputMessage}
           onChange={(e) => setInputMessage(e.target.value)}
-          onKeyPress={(e) => e.key === "Enter" && handleSendMessage()}
+          onKeyDown={(e) => e.key === "Enter" && handleSendMessage()}
           className={styles.messageInput}
         />
         <button

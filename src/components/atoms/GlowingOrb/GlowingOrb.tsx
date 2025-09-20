@@ -4,14 +4,16 @@ import styles from './GlowingOrb.module.scss';
 interface GlowingOrbProps {
   size?: 'sm' | 'md' | 'lg';
   className?: string;
+  isSpeaking?: boolean;
 }
 
 const GlowingOrb: React.FC<GlowingOrbProps> = ({
   size = 'lg',
-  className = ''
+  className = '',
+  isSpeaking = false
 }) => {
   return (
-    <div className={`${styles.orbContainer} ${styles[size]} ${className}`}>
+    <div className={`${styles.orbContainer} ${styles[size]} ${isSpeaking ? styles.speaking : ''} ${className}`}>
       <svg className={styles.orb} width="86" height="86" viewBox="0 0 86 86" fill="none" xmlns="http://www.w3.org/2000/svg">
         <g filter="url(#filter0_g_1_343)">
           <g clipPath="url(#clip0_1_343)">
