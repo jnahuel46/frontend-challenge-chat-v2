@@ -1,4 +1,5 @@
 @use '../../../styles/variables' as *;
+@use '../../../styles/design-tokens' as *;
 
 .voicePage {
   display: flex;
@@ -16,8 +17,8 @@
   justify-content: space-between;
   padding: var(--spacing-md) var(--spacing-lg);
   background: var(--bg-primary);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  min-height: 60px;
+  border-bottom: $border-standard solid $color-white-10;
+  min-height: $size-chat-header-height;
   z-index: 10;
 }
 
@@ -42,19 +43,19 @@
 }
 
 .endButton {
-  background: #18181B;
-  border: 1px solid #18181B;
+  background: $color-zinc-dark;
+  border: $border-standard solid $color-zinc-dark;
   color: var(--teal-300);
   font-weight: 600;
   padding: var(--spacing-sm) var(--spacing-md);
-  border-radius: 20px;
+  border-radius: $size-chat-border-radius;
   cursor: pointer;
   transition: all var(--transition-fast);
-  backdrop-filter: blur(10px);
+  backdrop-filter: $blur-mic;
 
   &:hover {
     background: rgba(24, 24, 27, 0.9);
-    border-color: #18181B;
+    border-color: $color-zinc-dark;
     transform: translateY(-2px);
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
   }
@@ -67,7 +68,7 @@
 // Light mode overrides
 [data-theme="light"] .voicePage {
   .header {
-    border-bottom: 1px solid var(--border-color);
+    border-bottom: $border-standard solid var(--border-color);
   }
 
   .title {
@@ -76,8 +77,8 @@
 }
 
 // Desktop responsive - sidebar layout
-@media (min-width: 769px) {
+@media (min-width: $breakpoint-desktop) {
   .voicePage {
-    margin-left: 80px; // Make space for left sidebar
+    margin-left: $size-sidebar-width; // Make space for left sidebar
   }
 }

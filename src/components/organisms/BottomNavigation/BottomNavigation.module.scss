@@ -1,13 +1,14 @@
 @use '../../../styles/variables' as *;
+@use '../../../styles/design-tokens' as *;
 
 .bottomNav {
   display: flex;
   align-items: center;
   justify-content: space-around;
   padding: var(--spacing-sm) var(--spacing-md);
-  background: #000000;
-  backdrop-filter: blur(20px);
-  border-top: 0.5px solid var(--teal-600);
+  background: $color-black-primary;
+  backdrop-filter: $blur-backdrop;
+  border-top: $border-thin solid var(--teal-600);
   position: sticky;
   bottom: 0;
   left: 0;
@@ -24,12 +25,12 @@
   border: none;
   cursor: pointer;
   transition: all var(--transition-fast);
-  color: rgba(255, 255, 255, 0.6);
-  min-width: 60px;
+  color: $color-white-60;
+  min-width: $size-mic-button;
 
   &:hover {
-    color: rgba(255, 255, 255, 0.8);
-    transform: translateY(-1px);
+    color: $color-white-80;
+    transform: $transform-up;
   }
 
   &.active {
@@ -46,7 +47,7 @@
     cursor: not-allowed;
 
     &:hover {
-      color: rgba(255, 255, 255, 0.6);
+      color: $color-white-60;
       transform: none;
     }
   }
@@ -54,36 +55,36 @@
 
 .iconContainer {
   @include flex-center;
-  width: 32px;
-  height: 32px;
+  width: $size-icon-large;
+  height: $size-icon-large;
   border-radius: var(--radius-md);
   transition: all var(--transition-fast);
 
   svg {
-    width: 20px;
-    height: 20px;
-    stroke-width: 1.5;
+    width: $size-icon-small;
+    height: $size-icon-small;
+    stroke-width: $stroke-width-normal;
   }
 }
 
 .label {
   font-size: var(--text-xs);
   font-weight: 500;
-  letter-spacing: 0.01em;
+  letter-spacing: $letter-spacing-tight;
 }
 
 // Desktop: Transform to left sidebar
-@media (min-width: 769px) {
+@media (min-width: $breakpoint-desktop) {
   .bottomNav {
     position: fixed;
     left: 0;
-    width: 80px;
+    width: $size-sidebar-width;
     height: 100vh;
     flex-direction: column;
     justify-content: flex-start;
     padding: var(--spacing-lg) var(--spacing-sm);
     border-top: none;
-    border-right: 0.5px solid var(--teal-600);
+    border-right: $border-thin solid var(--teal-600);
     z-index: 50;
 
     // Add top header background to match theme
@@ -92,10 +93,10 @@
       position: fixed;
       top: 0;
       left: 0;
-      width: 80px;
-      height: 100px;
+      width: $size-sidebar-width;
+      height: $size-sidebar-header;
       background: var(--bg-primary);
-      border-right: 0.5px solid var(--teal-600);
+      border-right: $border-thin solid var(--teal-600);
       z-index: -1;
     }
   }

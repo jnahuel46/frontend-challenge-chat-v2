@@ -1,4 +1,5 @@
 @use '../../../styles/variables' as *;
+@use '../../../styles/design-tokens' as *;
 
 .chatPage {
   display: flex;
@@ -15,20 +16,20 @@
   justify-content: space-between;
   padding: var(--spacing-md) var(--spacing-lg);
   background: var(--bg-primary);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  min-height: 60px;
+  border-bottom: $border-standard solid $color-white-10;
+  min-height: $size-chat-header-height;
   z-index: 10;
 }
 
 .headerControls {
   display: flex;
   align-items: center;
-  gap: 2px;
-  background: rgba(255, 255, 255, 0.1);
+  gap: $spacing-2;
+  background: $color-white-10;
   border-radius: 9999px;
-  padding: 4px;
-  width: 122px;
-  height: 36px;
+  padding: $spacing-4;
+  width: $size-chat-controls-width;
+  height: $size-chat-controls-height;
 }
 
 .modeToggle {
@@ -39,25 +40,25 @@
   border: none;
   padding: var(--spacing-xs);
   border-radius: 9999px;
-  color: rgba(255, 255, 255, 0.6);
+  color: $color-white-60;
   cursor: pointer;
   transition: all var(--transition-fast);
   flex: 1;
 
   &.active {
-    background: var(--Zinc-black, #000000);
-    border: 1px solid var(--Zinc-black, #000000);
+    background: $color-black-primary;
+    border: $border-standard solid $color-black-primary;
     color: var(--teal-300);
   }
 
   &:hover:not(.active) {
-    background: rgba(255, 255, 255, 0.1);
-    color: rgba(255, 255, 255, 0.8);
+    background: $color-white-10;
+    color: $color-white-80;
   }
 
   svg {
-    width: 20px;
-    height: 20px;
+    width: $size-icon-small;
+    height: $size-icon-small;
   }
 }
 
@@ -75,19 +76,19 @@
 }
 
 .endButton {
-  background: #18181B;
-  border: 1px solid #18181B;
+  background: $color-zinc-dark;
+  border: $border-standard solid $color-zinc-dark;
   color: var(--teal-300);
   font-weight: 600;
   padding: var(--spacing-sm) var(--spacing-md);
-  border-radius: 20px;
+  border-radius: $size-chat-border-radius;
   cursor: pointer;
   transition: all var(--transition-fast);
-  backdrop-filter: blur(10px);
+  backdrop-filter: $blur-mic;
 
   &:hover {
     background: rgba(24, 24, 27, 0.9);
-    border-color: #18181B;
+    border-color: $color-zinc-dark;
     transform: translateY(-2px);
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
   }
@@ -100,7 +101,7 @@
 .sessionTitle {
   padding: var(--spacing-md) var(--spacing-lg);
   text-align: center;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: $border-standard solid $color-white-10;
   height: 40px;
   display: flex;
   align-items: center;
@@ -159,7 +160,7 @@
     justify-content: flex-end;
 
     .messageBubble {
-      background: var(--Zinc-900, #18181B);
+      background: $color-zinc-dark;
       color: var(--text-primary);
       margin-left: auto;
       max-width: 80%;
@@ -178,11 +179,11 @@
 
 .messageBubble {
   padding: var(--spacing-md) var(--spacing-lg);
-  border-radius: 20px;
+  border-radius: $size-chat-border-radius;
   font-size: var(--text-base);
   line-height: 1.4;
   word-wrap: break-word;
-  backdrop-filter: blur(10px);
+  backdrop-filter: $blur-mic;
   border: 1px solid rgba(255, 255, 255, 0.1);
 
   &.typing {
@@ -200,12 +201,12 @@
   display: flex;
   align-items: center;
   gap: 12px;
-  background: rgba(255, 255, 255, 0.1);
+  background: $color-white-10;
   border: 0.5px solid #D9D9D9;
   border-radius: 18px;
   padding: 8.5px 12px;
-  backdrop-filter: blur(10px);
-  height: 36px;
+  backdrop-filter: $blur-mic;
+  height: $size-chat-controls-height;
   opacity: 1;
   margin: 12px;
   width: calc(100% - 24px); // Full width minus margins

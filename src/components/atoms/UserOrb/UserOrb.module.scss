@@ -1,4 +1,5 @@
 @use '../../../styles/variables' as *;
+@use '../../../styles/design-tokens' as *;
 
 .orbContainer {
   position: relative;
@@ -8,18 +9,18 @@
   transition: all 0.3s ease-in-out;
 
   &.normal {
-    width: 86px;
-    height: 86px;
+    width: $size-orb-normal;
+    height: $size-orb-normal;
   }
 
   &.large {
-    width: 96px;
-    height: 96px;
+    width: $size-orb-large;
+    height: $size-orb-large;
   }
 
   &.speaking {
-    transform: scale(1.12); // From 86px to 96px = 1.12 scale
-    animation: userSpeakingPulse 2s ease-in-out infinite;
+    transform: scale($scale-speaking); // From 86px to 96px = 1.12 scale
+    animation: userSpeakingPulse $duration-speaking ease-in-out infinite;
   }
 }
 
@@ -27,12 +28,12 @@
   width: 100%;
   height: 100%;
   transition: all 0.3s ease-in-out;
-  filter: drop-shadow(0 0 20px rgba(253, 85, 51, 0.6));
-  animation: userOrbGlow 12s ease-in-out infinite;
+  filter: drop-shadow($shadow-glow-small $color-user-orb-primary);
+  animation: userOrbGlow $duration-breathing ease-in-out infinite;
 
   .speaking & {
-    filter: drop-shadow(0 0 30px rgba(253, 85, 51, 0.8));
-    animation: userSpeakingPulse 2s ease-in-out infinite;
+    filter: drop-shadow($shadow-glow-large $color-user-orb-speaking);
+    animation: userSpeakingPulse $duration-speaking ease-in-out infinite;
   }
 }
 
@@ -40,11 +41,11 @@
 @keyframes userOrbGlow {
   0%, 100% {
     transform: scale(1) rotate(0deg);
-    filter: drop-shadow(0 0 20px rgba(253, 85, 51, 0.6));
+    filter: drop-shadow($shadow-glow-small $color-user-orb-primary);
   }
   50% {
-    transform: scale(1.02) rotate(30deg);
-    filter: drop-shadow(0 0 25px rgba(253, 85, 51, 0.7));
+    transform: scale($scale-orb-breathing) rotate(30deg);
+    filter: drop-shadow($shadow-glow-medium $color-user-orb-glow);
   }
 }
 
@@ -52,10 +53,10 @@
 @keyframes userSpeakingPulse {
   0%, 100% {
     transform: scale(1);
-    filter: drop-shadow(0 0 20px rgba(253, 85, 51, 0.6));
+    filter: drop-shadow($shadow-glow-small $color-user-orb-primary);
   }
   50% {
-    transform: scale(1.05);
-    filter: drop-shadow(0 0 35px rgba(253, 85, 51, 0.9));
+    transform: scale($scale-hover);
+    filter: drop-shadow($shadow-glow-intense $color-user-orb-intense);
   }
 }

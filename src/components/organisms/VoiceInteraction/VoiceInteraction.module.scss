@@ -1,4 +1,5 @@
 @use '../../../styles/variables' as *;
+@use '../../../styles/design-tokens' as *;
 
 .voiceContainer {
   display: flex;
@@ -18,81 +19,81 @@
     bottom: 0;
     left: 0;
     right: 0;
-    height: 40%;
+    height: $position-gradient-height;
     background: linear-gradient(
       to top,
-      rgba(255, 193, 7, 0.15) 0%,
-      rgba(255, 152, 0, 0.1) 30%,
+      $color-gradient-start 0%,
+      $color-gradient-mid 30%,
       transparent 100%
     );
     pointer-events: none;
-    z-index: 1;
+    z-index: $z-gradient;
   }
 }
 
 .aiOrbContainer {
   position: absolute;
-  top: 25%;
+  top: $position-voice-ai-top;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 2;
+  z-index: $z-orbs;
   transition: all 0.3s ease-in-out;
 
   &.speaking {
-    transform: translateX(-50%) scale(1.12); // Same scale as user orb (86px to 96px)
+    transform: translateX(-50%) scale($scale-speaking); // Same scale as user orb (86px to 96px)
   }
 }
 
 .userOrbContainer {
   position: absolute;
-  bottom: 30%;
+  bottom: $position-voice-user-bottom;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 2;
+  z-index: $z-orbs;
 }
 
 .micButton {
   position: absolute;
-  bottom: 120px;
+  bottom: $position-mic-bottom;
   left: 50%;
   transform: translateX(-50%);
-  width: 60px;
-  height: 60px;
+  width: $size-mic-button;
+  height: $size-mic-button;
   border-radius: 50%;
-  background: rgba(0, 0, 0, 0.8);
-  border: 2px solid var(--teal-300);
+  background: $color-black-80;
+  border: $border-medium solid var(--teal-300);
   color: var(--teal-300);
   cursor: pointer;
   transition: all 0.3s ease-in-out;
-  backdrop-filter: blur(10px);
-  z-index: 3;
+  backdrop-filter: $blur-mic;
+  z-index: $z-controls;
   display: flex;
   align-items: center;
   justify-content: center;
 
   &:hover {
-    background: rgba(0, 0, 0, 0.9);
-    transform: translateX(-50%) scale(1.05);
-    box-shadow: 0 0 25px rgba(71, 236, 213, 0.5);
+    background: $color-black-90;
+    transform: translateX(-50%) scale($scale-hover);
+    box-shadow: $shadow-glow-medium $color-teal-glow;
   }
 
   &:active,
   &.recording {
     background: var(--teal-300);
     color: #000;
-    transform: translateX(-50%) scale(0.95);
-    box-shadow: 0 0 30px rgba(71, 236, 213, 0.8);
+    transform: translateX(-50%) scale($scale-active);
+    box-shadow: $shadow-glow-large $color-teal-intense;
   }
 
   svg {
-    width: 24px;
-    height: 24px;
+    width: $size-icon-medium;
+    height: $size-icon-medium;
   }
 }
 
 .statusText {
   position: absolute;
-  bottom: 60px;
+  bottom: $position-status-bottom;
   left: 50%;
   transform: translateX(-50%);
   font-size: var(--text-sm);
@@ -100,18 +101,18 @@
   color: var(--text-secondary);
   text-align: center;
   transition: all 0.3s ease-in-out;
-  z-index: 3;
+  z-index: $z-controls;
 }
 
 // Override GlowingOrb animations to prevent movement
 .aiOrbContainer {
   // Override internal GlowingOrb animations
   :global(.orb) {
-    animation: voiceOrbGlow 12s ease-in-out infinite !important;
+    animation: voiceOrbGlow $duration-breathing ease-in-out infinite !important;
   }
 
   &.speaking :global(.orb) {
-    animation: voiceOrbGlowSpeaking 2s ease-in-out infinite !important;
+    animation: voiceOrbGlowSpeaking $duration-speaking ease-in-out infinite !important;
   }
 }
 
@@ -119,11 +120,11 @@
 @keyframes voiceOrbGlow {
   0%, 100% {
     transform: scale(1);
-    filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.4));
+    filter: drop-shadow($shadow-glow-small $color-ai-orb-primary);
   }
   50% {
-    transform: scale(1.02);
-    filter: drop-shadow(0 0 25px rgba(255, 215, 0, 0.5));
+    transform: scale($scale-orb-breathing);
+    filter: drop-shadow($shadow-glow-medium $color-ai-orb-glow);
   }
 }
 
@@ -131,44 +132,44 @@
 @keyframes voiceOrbGlowSpeaking {
   0%, 100% {
     transform: scale(1);
-    filter: drop-shadow(0 0 25px rgba(71, 236, 213, 0.6));
+    filter: drop-shadow($shadow-glow-medium $color-teal-speaking);
   }
   50% {
-    transform: scale(1.05);
-    filter: drop-shadow(0 0 35px rgba(71, 236, 213, 0.8));
+    transform: scale($scale-hover);
+    filter: drop-shadow($shadow-glow-intense $color-teal-intense);
   }
 }
 
 // Mobile responsive
-@media (max-width: 768px) {
+@media (max-width: $breakpoint-mobile) {
   .aiOrbContainer {
-    top: 20%;
+    top: $position-voice-ai-mobile;
   }
 
   .userOrbContainer {
-    bottom: 25%;
+    bottom: $position-voice-user-mobile;
   }
 
   .micButton {
-    bottom: 100px;
-    width: 56px;
-    height: 56px;
+    bottom: $position-mic-mobile;
+    width: $size-mic-button-mobile;
+    height: $size-mic-button-mobile;
 
     svg {
-      width: 20px;
-      height: 20px;
+      width: $size-icon-small;
+      height: $size-icon-small;
     }
   }
 
   .statusText {
-    bottom: 40px;
+    bottom: $position-status-mobile;
     font-size: var(--text-xs);
   }
 }
 
 // Desktop responsive - consider sidebar
-@media (min-width: 769px) {
+@media (min-width: $breakpoint-desktop) {
   .voiceContainer {
-    margin-left: 80px; // Make space for left sidebar
+    margin-left: $size-sidebar-width; // Make space for left sidebar
   }
 }

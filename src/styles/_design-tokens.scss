@@ -1,0 +1,109 @@
+// Design Tokens - Repeated values extracted for consistency
+
+// Colors - Repeated RGBA values
+$color-black-primary: #000000;
+$color-black-80: rgba(0, 0, 0, 0.8);
+$color-black-90: rgba(0, 0, 0, 0.9);
+$color-white-60: rgba(255, 255, 255, 0.6);
+$color-white-80: rgba(255, 255, 255, 0.8);
+$color-white-10: rgba(255, 255, 255, 0.1);
+
+// Chat specific colors
+$color-zinc-dark: #18181B;
+
+// Orange/Red colors for user orb
+$color-user-orb-primary: rgba(253, 85, 51, 0.6);
+$color-user-orb-speaking: rgba(253, 85, 51, 0.8);
+$color-user-orb-glow: rgba(253, 85, 51, 0.7);
+$color-user-orb-intense: rgba(253, 85, 51, 0.9);
+
+// Yellow/Gold colors for AI orb
+$color-ai-orb-primary: rgba(255, 215, 0, 0.4);
+$color-ai-orb-glow: rgba(255, 215, 0, 0.5);
+
+// Teal colors for interactions
+$color-teal-glow: rgba(71, 236, 213, 0.5);
+$color-teal-speaking: rgba(71, 236, 213, 0.6);
+$color-teal-intense: rgba(71, 236, 213, 0.8);
+
+// Gradient colors for voice interaction
+$color-gradient-start: rgba(255, 193, 7, 0.15);
+$color-gradient-mid: rgba(255, 152, 0, 0.1);
+
+// Border widths
+$border-thin: 0.5px;
+$border-medium: 2px;
+$border-standard: 1px;
+
+// Common dimensions
+$size-orb-normal: 86px;
+$size-orb-large: 96px;
+$size-icon-small: 20px;
+$size-icon-medium: 24px;
+$size-icon-large: 32px;
+$size-mic-button: 60px;
+$size-mic-button-mobile: 56px;
+$size-sidebar-width: 80px;
+$size-sidebar-header: 100px;
+
+// Chat specific dimensions
+$size-chat-header-height: 60px;
+$size-chat-controls-width: 122px;
+$size-chat-controls-height: 36px;
+$size-chat-border-radius: 20px;
+
+// Common positions and percentages
+$position-voice-ai-top: 25%;
+$position-voice-user-bottom: 30%;
+$position-voice-ai-mobile: 20%;
+$position-voice-user-mobile: 25%;
+$position-mic-bottom: 120px;
+$position-mic-mobile: 100px;
+$position-status-bottom: 60px;
+$position-status-mobile: 40px;
+$position-gradient-height: 40%;
+
+// Scale factors
+$scale-speaking: 1.12;
+$scale-hover: 1.05;
+$scale-active: 0.95;
+$scale-orb-breathing: 1.02;
+
+// Animation durations
+$duration-breathing: 12s;
+$duration-speaking: 2s;
+
+// Blur effects
+$blur-backdrop: blur(20px);
+$blur-mic: blur(10px);
+
+// Padding and spacing shortcuts
+$spacing-2: 2px;
+$spacing-4: 4px;
+
+// Z-index layers
+$z-gradient: 1;
+$z-orbs: 2;
+$z-controls: 3;
+
+// Box shadow depths
+$shadow-glow-small: 0 0 20px;
+$shadow-glow-medium: 0 0 25px;
+$shadow-glow-large: 0 0 30px;
+$shadow-glow-intense: 0 0 35px;
+
+// Media query breakpoints
+$breakpoint-mobile: 768px;
+$breakpoint-desktop: 769px;
+
+// Letter spacing
+$letter-spacing-tight: 0.01em;
+
+// Stroke widths for SVG
+$stroke-width-normal: 1.5;
+$stroke-width-bold: 2;
+
+// Transform values
+$transform-center-x: translateX(-50%);
+$transform-center-xy: translate(-50%, -50%);
+$transform-up: translateY(-1px);
