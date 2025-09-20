@@ -45,6 +45,12 @@
   height: 100%;
   animation: orbGlow 12s ease-in-out infinite;
   filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.4));
+
+  [data-theme="light"] & {
+    opacity: 0.9;
+    animation: orbGlowLight 12s ease-in-out infinite;
+    filter: drop-shadow(0 0 25px rgba(255, 140, 0, 0.8)) brightness(0.8) contrast(1.3);
+  }
 }
 
 @keyframes orbGlow {
@@ -55,5 +61,16 @@
   50% {
     transform: scale(1.02) rotate(30deg);
     filter: drop-shadow(0 0 25px rgba(255, 215, 0, 0.5));
+  }
+}
+
+@keyframes orbGlowLight {
+  0%, 100% {
+    transform: scale(1) rotate(0deg);
+    filter: drop-shadow(0 0 25px rgba(255, 140, 0, 0.8)) brightness(0.8) contrast(1.3);
+  }
+  50% {
+    transform: scale(1.02) rotate(30deg);
+    filter: drop-shadow(0 0 30px rgba(255, 140, 0, 0.9)) brightness(0.7) contrast(1.4);
   }
 }

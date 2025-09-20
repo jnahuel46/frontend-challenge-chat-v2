@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import GlowingOrb from '../../atoms/GlowingOrb';
 import ActionButton from '../../molecules/ActionButton';
 import BottomNavigation from '../../organisms/BottomNavigation';
+import ThemeToggle from '../../molecules/ThemeToggle';
 import styles from './IrisLandingPage.module.scss';
 
 interface IrisLandingPageProps {
@@ -27,13 +28,16 @@ const IrisLandingPage: React.FC<IrisLandingPageProps> = ({
       {/* Header */}
       <header className={styles.header}>
         <h1 className={styles.title}>Iris</h1>
-        <button className={styles.menuButton} aria-label="Menu">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-            <circle cx="12" cy="5" r="1"/>
-            <circle cx="12" cy="12" r="1"/>
-            <circle cx="12" cy="19" r="1"/>
-          </svg>
-        </button>
+        <div className={styles.headerActions}>
+          <div className={styles.menuDots}>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <circle cx="12" cy="5" r="1"/>
+              <circle cx="12" cy="12" r="1"/>
+              <circle cx="12" cy="19" r="1"/>
+            </svg>
+          </div>
+          <ThemeToggle />
+        </div>
       </header>
 
       {/* Main Content */}

@@ -1,6 +1,5 @@
 import React from 'react';
 import { useThemeStore } from '../../../stores';
-import Button from '../../atoms/Button';
 
 interface ThemeToggleProps {
   className?: string;
@@ -10,16 +9,33 @@ const ThemeToggle: React.FC<ThemeToggleProps> = ({ className = '' }) => {
   const { theme, toggleTheme } = useThemeStore();
 
   return (
-    <Button
-      variant="ghost"
-      size="sm"
+    <button
       onClick={toggleTheme}
-      className={className}
+      className={`theme-toggle ${className}`}
       aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
+      style={{
+        background: 'none',
+        border: 'none',
+        color: 'var(--text-primary)',
+        cursor: 'pointer',
+        padding: '8px',
+        borderRadius: '6px',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        transition: 'background-color 0.2s ease'
+      }}
+      onMouseEnter={(e) => {
+        e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.1)';
+      }}
+      onMouseLeave={(e) => {
+        e.currentTarget.style.backgroundColor = 'transparent';
+      }}
     >
       {theme === 'dark' ? (
         <svg
-          className="w-5 h-5"
+          width="20"
+          height="20"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -34,7 +50,8 @@ const ThemeToggle: React.FC<ThemeToggleProps> = ({ className = '' }) => {
         </svg>
       ) : (
         <svg
-          className="w-5 h-5"
+          width="20"
+          height="20"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -48,7 +65,7 @@ const ThemeToggle: React.FC<ThemeToggleProps> = ({ className = '' }) => {
           />
         </svg>
       )}
-    </Button>
+    </button>
   );
 };
 

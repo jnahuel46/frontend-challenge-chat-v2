@@ -4,90 +4,36 @@
   display: flex;
   flex-direction: column;
   height: 100vh;
-  background: linear-gradient(180deg, #000000 0%, #0a0a0a 100%);
-  color: white;
+  background: var(--bg-primary);
+  color: var(--text-primary);
   overflow: hidden;
   position: relative;
-}
-
-.statusBar {
-  @include flex-between;
-  padding: var(--spacing-sm) var(--spacing-lg);
-  font-size: var(--text-sm);
-  font-weight: 600;
-  z-index: 10;
-
-  .time {
-    color: white;
-  }
-
-  .statusIcons {
-    display: flex;
-    align-items: center;
-    gap: var(--spacing-xs);
-
-    .signal,
-    .wifi,
-    .battery {
-      width: 16px;
-      height: 10px;
-      background: white;
-      border-radius: 2px;
-      opacity: 0.9;
-    }
-
-    .signal {
-      background: linear-gradient(to right,
-        white 0%, white 25%,
-        rgba(255,255,255,0.6) 25%, rgba(255,255,255,0.6) 50%,
-        rgba(255,255,255,0.3) 50%, rgba(255,255,255,0.3) 75%,
-        rgba(255,255,255,0.1) 75%);
-    }
-
-    .battery {
-      width: 20px;
-      background: white;
-      position: relative;
-
-      &::after {
-        content: '';
-        position: absolute;
-        right: -2px;
-        top: 3px;
-        width: 2px;
-        height: 4px;
-        background: white;
-        border-radius: 0 1px 1px 0;
-      }
-    }
-  }
 }
 
 .header {
   @include flex-between;
   padding: var(--spacing-md) var(--spacing-lg);
   z-index: 10;
+  height: 56px;
 
   .title {
     font-size: var(--text-xl);
     font-weight: 600;
-    color: white;
+    color: var(--text-primary);
     margin: 0;
   }
 
-  .menuButton {
-    background: none;
-    border: none;
-    color: rgba(255, 255, 255, 0.8);
-    cursor: pointer;
-    padding: var(--spacing-sm);
-    border-radius: var(--radius-md);
-    transition: all var(--transition-fast);
+  .headerActions {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+  }
 
-    &:hover {
-      background: rgba(255, 255, 255, 0.1);
-      color: white;
-    }
+  .menuDots {
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     svg {
       width: 20px;
