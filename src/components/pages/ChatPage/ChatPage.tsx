@@ -93,7 +93,7 @@ const ChatPage: React.FC = () => {
 
         <div className={styles.orbContainer}>
           <GlowingOrb
-            size={isTyping ? "md" : "sm"}
+            size="sm"
             isSpeaking={isTyping}
           />
         </div>
