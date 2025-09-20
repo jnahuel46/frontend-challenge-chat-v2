@@ -21,7 +21,7 @@
 - **State management**: Zustand, much more simpler and faster
 - **A11y stuff**: Added the ARIA labels and keyboard nav that we always forget about
 - **GitHub Action**: Thinging on the future to have a great pipeline running automated tests
-
+- ![Pipes](./pipes.png)
 ### Tech Choices
 
 - **React + TypeScript**: Because types save lives
@@ -30,7 +30,7 @@
 - **Custom animations**: focus on the orbs (with more time ill be use a library)
 - **Mobile-first**: Based on the assumption that will be used for more users in mobile
 - **Jest**: Basic test implentation, with more time i could complete a 100% coverage
-- ![Testing](./image-1.png)
+- ![Testing](./image.png)
 
 ## Problems I Had to Solve
 
