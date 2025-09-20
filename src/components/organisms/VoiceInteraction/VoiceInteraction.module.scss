@@ -1,0 +1,174 @@
+@use '../../../styles/variables' as *;
+
+.voiceContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  padding: var(--spacing-xl);
+  position: relative;
+
+  // Add gradient overlay at bottom like in the image
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 40%;
+    background: linear-gradient(
+      to top,
+      rgba(255, 193, 7, 0.15) 0%,
+      rgba(255, 152, 0, 0.1) 30%,
+      transparent 100%
+    );
+    pointer-events: none;
+    z-index: 1;
+  }
+}
+
+.aiOrbContainer {
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  transition: all 0.3s ease-in-out;
+
+  &.speaking {
+    transform: translateX(-50%) scale(1.12); // Same scale as user orb (86px to 96px)
+  }
+}
+
+.userOrbContainer {
+  position: absolute;
+  bottom: 30%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+}
+
+.micButton {
+  position: absolute;
+  bottom: 120px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.8);
+  border: 2px solid var(--teal-300);
+  color: var(--teal-300);
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  backdrop-filter: blur(10px);
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    background: rgba(0, 0, 0, 0.9);
+    transform: translateX(-50%) scale(1.05);
+    box-shadow: 0 0 25px rgba(71, 236, 213, 0.5);
+  }
+
+  &:active,
+  &.recording {
+    background: var(--teal-300);
+    color: #000;
+    transform: translateX(-50%) scale(0.95);
+    box-shadow: 0 0 30px rgba(71, 236, 213, 0.8);
+  }
+
+  svg {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+.statusText {
+  position: absolute;
+  bottom: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text-secondary);
+  text-align: center;
+  transition: all 0.3s ease-in-out;
+  z-index: 3;
+}
+
+// Override GlowingOrb animations to prevent movement
+.aiOrbContainer {
+  // Override internal GlowingOrb animations
+  :global(.orb) {
+    animation: voiceOrbGlow 12s ease-in-out infinite !important;
+  }
+
+  &.speaking :global(.orb) {
+    animation: voiceOrbGlowSpeaking 2s ease-in-out infinite !important;
+  }
+}
+
+// Static orb animation (no rotation)
+@keyframes voiceOrbGlow {
+  0%, 100% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.4));
+  }
+  50% {
+    transform: scale(1.02);
+    filter: drop-shadow(0 0 25px rgba(255, 215, 0, 0.5));
+  }
+}
+
+// Speaking animation (same as user orb - simple pulse)
+@keyframes voiceOrbGlowSpeaking {
+  0%, 100% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 25px rgba(71, 236, 213, 0.6));
+  }
+  50% {
+    transform: scale(1.05);
+    filter: drop-shadow(0 0 35px rgba(71, 236, 213, 0.8));
+  }
+}
+
+// Mobile responsive
+@media (max-width: 768px) {
+  .aiOrbContainer {
+    top: 20%;
+  }
+
+  .userOrbContainer {
+    bottom: 25%;
+  }
+
+  .micButton {
+    bottom: 100px;
+    width: 56px;
+    height: 56px;
+
+    svg {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  .statusText {
+    bottom: 40px;
+    font-size: var(--text-xs);
+  }
+}
+
+// Desktop responsive - consider sidebar
+@media (min-width: 769px) {
+  .voiceContainer {
+    margin-left: 80px; // Make space for left sidebar
+  }
+}

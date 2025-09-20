@@ -1,0 +1,61 @@
+@use '../../../styles/variables' as *;
+
+.orbContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease-in-out;
+
+  &.normal {
+    width: 86px;
+    height: 86px;
+  }
+
+  &.large {
+    width: 96px;
+    height: 96px;
+  }
+
+  &.speaking {
+    transform: scale(1.12); // From 86px to 96px = 1.12 scale
+    animation: userSpeakingPulse 2s ease-in-out infinite;
+  }
+}
+
+.orb {
+  width: 100%;
+  height: 100%;
+  transition: all 0.3s ease-in-out;
+  filter: drop-shadow(0 0 20px rgba(253, 85, 51, 0.6));
+  animation: userOrbGlow 12s ease-in-out infinite;
+
+  .speaking & {
+    filter: drop-shadow(0 0 30px rgba(253, 85, 51, 0.8));
+    animation: userSpeakingPulse 2s ease-in-out infinite;
+  }
+}
+
+// Normal breathing animation with rotation (like Iris)
+@keyframes userOrbGlow {
+  0%, 100% {
+    transform: scale(1) rotate(0deg);
+    filter: drop-shadow(0 0 20px rgba(253, 85, 51, 0.6));
+  }
+  50% {
+    transform: scale(1.02) rotate(30deg);
+    filter: drop-shadow(0 0 25px rgba(253, 85, 51, 0.7));
+  }
+}
+
+// Speaking animation (more intense, no rotation for clarity)
+@keyframes userSpeakingPulse {
+  0%, 100% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 20px rgba(253, 85, 51, 0.6));
+  }
+  50% {
+    transform: scale(1.05);
+    filter: drop-shadow(0 0 35px rgba(253, 85, 51, 0.9));
+  }
+}

@@ -141,9 +141,12 @@ const BottomNavigation: React.FC<BottomNavigationProps> = ({
           key={tab.id}
           className={`${styles.navItem} ${
             activeTab === tab.id ? styles.active : ""
+          } ${
+            tab.id !== 'iris' ? styles.disabled : ""
           }`}
-          onClick={() => onTabChange?.(tab.id)}
+          onClick={() => tab.id === 'iris' ? onTabChange?.(tab.id) : undefined}
           aria-label={tab.label}
+          disabled={tab.id !== 'iris'}
         >
           <div className={styles.iconContainer}>{tab.icon}</div>
           <span className={styles.label}>{tab.label}</span>

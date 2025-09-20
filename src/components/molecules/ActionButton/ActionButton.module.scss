@@ -13,6 +13,8 @@
   backdrop-filter: blur(10px);
   flex: 1;
   height: 56px;
+  width: 172px; // Fixed width to ensure both buttons are equal
+  min-width: 172px; // Minimum width to prevent shrinking
 
   &:hover {
     transform: translateY(-2px);

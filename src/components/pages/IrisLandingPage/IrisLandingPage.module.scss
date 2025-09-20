@@ -123,3 +123,10 @@
   pointer-events: none;
   z-index: 1;
 }
+
+// Desktop responsive - sidebar layout
+@media (min-width: 769px) {
+  .landingPage {
+    margin-left: 80px; // Make space for left sidebar
+  }
+}
