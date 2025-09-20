@@ -8,13 +8,14 @@ import ThemeToggle from "../../molecules/ThemeToggle";
 import styles from "./ChatPage.module.scss";
 
 const ChatPage: React.FC = () => {
-  const { messages, isTyping, sendMessage } = useChatStore();
+  const { messages, isTyping, error, sendMessage, clearError } = useChatStore();
   const { goToLanding } = useNavigationStore();
   const [inputMessage, setInputMessage] = useState("");
   const [chatMode, setChatMode] = useState<"talk" | "text">("text");
 
   const handleSendMessage = () => {
     if (inputMessage.trim()) {
+      clearError(); // Clear any previous errors
       sendMessage(inputMessage);
       setInputMessage("");
     }
@@ -108,32 +109,44 @@ const ChatPage: React.FC = () => {
 
       {/* Session Title */}
       <div className={styles.sessionTitle}>
-        <h2>Chatting with Iris about Sam</h2>
+        <h2>Chatting with Iris</h2>
+        {/* Show API connection status */}
+        {!(import.meta as any).env.VITE_GEMINI_API_KEY || (import.meta as any).env.VITE_GEMINI_API_KEY === 'your_gemini_api_key_here' ? (
+          <div className={styles.statusBadge + " " + styles.mockMode}>
+            Demo Mode
+          </div>
+        ) : (
+          <div className={styles.statusBadge + " " + styles.aiMode}>
+            AI Connected
+          </div>
+        )}
       </div>
+
+      {/* Error Message */}
+      {error && (
+        <div className={styles.errorContainer}>
+          <div className={styles.errorMessage}>
+            {error}
+            <button onClick={clearError} className={styles.errorClose}>×</button>
+          </div>
+        </div>
+      )}
 
       {/* Messages Area */}
       <main className={styles.messagesArea}>
         <div className={styles.messagesList}>
-          {/* AI Message */}
-          <div className={styles.message + " " + styles.aiMessage}>
-            <div className={styles.messageBubble}>
-              <span className={styles.messageContent}>Hi, what would you like to chat about today?</span>
-              <div className={styles.messageExtras}>
-                <MoodIndicator mood="positive" />
-                <MessageActions />
+          {/* Welcome message when chat is empty */}
+          {messages.length === 0 && (
+            <div className={styles.message + " " + styles.aiMessage}>
+              <div className={styles.messageBubble}>
+                <span className={styles.messageContent}>Hi! I'm Iris, your AI assistant. What would you like to chat about today?</span>
+                <div className={styles.messageExtras}>
+                  <MoodIndicator mood="positive" />
+                  <MessageActions />
+                </div>
               </div>
             </div>
-          </div>
-
-          {/* User Message */}
-          <div className={styles.message + " " + styles.userMessage}>
-            <div className={styles.messageBubble}>
-              <span className={styles.messageContent}>I was hoping to chat with you about my boss, Sam.</span>
-              <div className={styles.messageExtras}>
-                <MessageActions />
-              </div>
-            </div>
-          </div>
+          )}
 
           {messages.map((message, index) => (
             <div

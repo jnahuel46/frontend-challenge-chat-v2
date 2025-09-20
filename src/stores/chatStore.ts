@@ -1,5 +1,6 @@
 import { create } from 'zustand';
 import { Message } from '../types';
+import { aiService } from '../services/aiService';
 
 /**
  * Chat store state interface
@@ -86,41 +87,47 @@ export const useChatStore = create<ChatState>((set, get) => ({
 
     addMessage(userMessage);
 
+    const aiMessageId = Date.now().toString() + '_ai';
+    const aiMessage: Message = {
+      id: aiMessageId,
+      content: '',
+      sender: 'ai',
+      timestamp: new Date(),
+      mood: 'neutral',
+      isStreaming: true,
+    };
+
+    addMessage(aiMessage);
+    setTyping(true);
+
     try {
-      // Simulate AI response
-      const responses = [
-        "That's an interesting point! Let me think about it...",
-        "I understand what you're saying. Here's my perspective...",
-        "Great question! I'd love to help you with that.",
-        "Thanks for sharing that with me. I appreciate your input.",
-        "That reminds me of something similar I've encountered before..."
-      ];
-
-      const moods: Array<Message['mood']> = ['positive', 'thoughtful', 'neutral', 'excited'];
-      const response = responses[Math.floor(Math.random() * responses.length)];
-      const mood = moods[Math.floor(Math.random() * moods.length)];
-
-      const aiMessage: Message = {
-        id: Date.now().toString() + '_ai',
-        content: '',
-        sender: 'ai',
-        timestamp: new Date(),
-        mood,
-        isStreaming: true,
-      };
-
-      addMessage(aiMessage);
-      setTyping(true);
-
-      // Simulate streaming response
-      for (let i = 0; i <= response.length; i++) {
-        await new Promise(resolve => setTimeout(resolve, 50));
-        updateStreamingMessage(aiMessage.id, response.substring(0, i));
-      }
-
-      completeStreamingMessage(aiMessage.id);
+      await aiService.streamResponse(content.trim(), {
+        onToken: (token: string, currentContent: string) => {
+          updateStreamingMessage(aiMessageId, currentContent);
+        },
+        onComplete: (finalContent: string, mood) => {
+          updateStreamingMessage(aiMessageId, finalContent);
+          set((state) => ({
+            messages: state.messages.map((msg) =>
+              msg.id === aiMessageId ? { ...msg, mood, isStreaming: false } : msg
+            ),
+            isTyping: false,
+          }));
+        },
+        onError: (error: string) => {
+          setError(error);
+          // Remove the failed AI message
+          set((state) => ({
+            messages: state.messages.filter((msg) => msg.id !== aiMessageId),
+          }));
+        }
+      });
     } catch (error) {
       setError('Failed to send message. Please try again.');
+      // Remove the failed AI message
+      set((state) => ({
+        messages: state.messages.filter((msg) => msg.id !== aiMessageId),
+      }));
     }
   },
 }));
