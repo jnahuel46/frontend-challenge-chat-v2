@@ -1,3 +1,8 @@
+// Font Family
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+}
+
 // Color Variables
 :root {
   // Light theme colors
@@ -21,6 +26,9 @@
   --warning: #f59e0b;
   --error: #ef4444;
   --purple: #8b5cf6;
+  --teal-300: #47ECD5;
+  --teal-600: #009689;
+  --text-secondary: #9F9FA9;
 
   // Mood colors
   --mood-positive: #dcfce7;

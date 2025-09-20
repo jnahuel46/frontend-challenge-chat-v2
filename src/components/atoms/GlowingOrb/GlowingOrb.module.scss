@@ -1,0 +1,59 @@
+@use '../../../styles/variables' as *;
+
+.orbContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 86px;
+  height: 86px;
+
+  &.sm {
+    width: 60px;
+    height: 60px;
+  }
+
+  &.md {
+    width: 72px;
+    height: 72px;
+  }
+
+  &.lg {
+    width: 86px;
+    height: 86px;
+  }
+
+  // Mobile responsive - 48px max
+  @media (max-width: 768px) {
+    width: 48px;
+    height: 48px;
+
+    &.sm, &.md, &.lg {
+      width: 48px;
+      height: 48px;
+    }
+
+    .orb {
+      width: 48px;
+      height: 48px;
+    }
+  }
+}
+
+.orb {
+  width: 100%;
+  height: 100%;
+  animation: orbGlow 12s ease-in-out infinite;
+  filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.4));
+}
+
+@keyframes orbGlow {
+  0%, 100% {
+    transform: scale(1) rotate(0deg);
+    filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.4));
+  }
+  50% {
+    transform: scale(1.02) rotate(30deg);
+    filter: drop-shadow(0 0 25px rgba(255, 215, 0, 0.5));
+  }
+}
