@@ -26,9 +26,9 @@ const ActionButton: React.FC<ActionButtonProps> = ({
           <path
             d="M2.25 10L2.25 14M6.25 7L6.25 17M10.25 3L10.25 21M14.25 9V15M18.25 6V18M22.25 10V14"
             stroke="white"
-            stroke-width="1.5"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           />
         </svg>
       ),
@@ -46,8 +46,8 @@ const ActionButton: React.FC<ActionButtonProps> = ({
           <path
             d="M2.75 12C2.75 8.13401 5.88401 5 9.75 5H15.75C19.616 5 22.75 8.13401 22.75 12V12C22.75 15.866 19.616 19 15.75 19H2.75V12Z"
             stroke="white"
-            stroke-width="1.5"
-            stroke-linejoin="round"
+            strokeWidth="1.5"
+            strokeLinejoin="round"
           />
           <path
             d="M9.75 12C9.75 12.5523 9.30228 13 8.75 13C8.19772 13 7.75 12.5523 7.75 12C7.75 11.4477 8.19772 11 8.75 11C9.30228 11 9.75 11.4477 9.75 12Z"

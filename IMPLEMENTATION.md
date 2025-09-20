@@ -26,6 +26,8 @@
 - **Atomic Design**: To have an organized project
 - **Custom animations**: focus on the orbs (with more time ill be use a library)
 - **Mobile-first**: Based on the assumption that will be used for more users in mobile
+- **Jest**: Basic test implentation, with more time i could complete a 100% coverage
+- ![alt text](image-1.png)
 
 ## Problems I Had to Solve
 

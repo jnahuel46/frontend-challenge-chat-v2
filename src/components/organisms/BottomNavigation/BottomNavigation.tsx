@@ -25,8 +25,8 @@ const BottomNavigation: React.FC<BottomNavigationProps> = ({
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
+            fillRule="evenodd"
+            clipRule="evenodd"
             d="M12 3.75C15.6244 3.75 18.5625 6.62123 18.5625 10.1631C18.5625 11.9192 17.84 13.5108 16.6699 14.6689C16.1392 15.1944 15.75 15.8743 15.75 16.6211C15.7498 17.2445 15.2445 17.7498 14.6211 17.75H9.37891C8.75553 17.7498 8.25024 17.2445 8.25 16.6211C8.25 15.8743 7.86079 15.1944 7.33008 14.6689C6.16002 13.5108 5.4375 11.9192 5.4375 10.1631C5.43753 6.62123 8.37565 3.75 12 3.75ZM12 6C11.5858 6 11.25 6.33579 11.25 6.75C11.25 7.16421 11.5858 7.5 12 7.5C13.5335 7.5 14.8125 8.7852 14.8125 10.415C14.8127 10.8291 15.1484 11.165 15.5625 11.165C15.9766 11.165 16.3123 10.8291 16.3125 10.415C16.3125 7.99702 14.4016 6 12 6Z"
             fill="#52525C"
           />
@@ -68,8 +68,8 @@ const BottomNavigation: React.FC<BottomNavigationProps> = ({
         >
           <g opacity="0.9" filter="url(#filter0_d_188_60)">
             <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
+              fillRule="evenodd"
+              clipRule="evenodd"
               d="M12.6666 4C17.0849 4 20.6666 7.58172 20.6666 12C20.6666 16.4183 17.0849 20 12.6666 20C8.24835 20 4.66663 16.4183 4.66663 12C4.66663 7.58172 8.24835 4 12.6666 4ZM12.6666 6.25C12.2524 6.25 11.9166 6.58579 11.9166 7C11.9166 7.41421 12.2524 7.75 12.6666 7.75C15.0138 7.75 16.9166 9.65279 16.9166 12C16.9166 12.4142 17.2524 12.75 17.6666 12.75C18.0808 12.75 18.4166 12.4142 18.4166 12C18.4166 8.82436 15.8423 6.25 12.6666 6.25Z"
               fill="#47ECD5"
             />
@@ -82,9 +82,9 @@ const BottomNavigation: React.FC<BottomNavigationProps> = ({
               width="32"
               height="32"
               filterUnits="userSpaceOnUse"
-              color-interpolation-filters="sRGB"
+              colorInterpolationFilters="sRGB"
             >
-              <feFlood flood-opacity="0" result="BackgroundImageFix" />
+              <feFlood floodOpacity="0" result="BackgroundImageFix" />
               <feColorMatrix
                 in="SourceAlpha"
                 type="matrix"
