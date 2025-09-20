@@ -1,19 +1,36 @@
 import { create } from 'zustand';
 import { Message } from '../types';
 
+/**
+ * Chat store state interface
+ */
 interface ChatState {
+  /** Array of chat messages */
   messages: Message[];
+  /** Whether AI is currently typing */
   isTyping: boolean;
+  /** Current error message if any */
   error: string | null;
+  /** Send a new message and get AI response */
   sendMessage: (content: string) => Promise<void>;
+  /** Clear current error */
   clearError: () => void;
+  /** Add a message to the chat */
   addMessage: (message: Message) => void;
+  /** Set typing indicator state */
   setTyping: (isTyping: boolean) => void;
+  /** Set error state */
   setError: (error: string | null) => void;
+  /** Update content of a streaming message */
   updateStreamingMessage: (id: string, content: string) => void;
+  /** Mark a streaming message as complete */
   completeStreamingMessage: (id: string) => void;
 }
 
+/**
+ * Chat store for managing messages and conversation state
+ * Handles message sending, streaming responses, and error states
+ */
 export const useChatStore = create<ChatState>((set, get) => ({
   messages: [],
   isTyping: false,

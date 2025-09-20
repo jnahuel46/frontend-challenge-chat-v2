@@ -46,9 +46,9 @@
   flex: 1;
 
   &.active {
-    background: $color-black-primary;
-    border: $border-standard solid $color-black-primary;
-    color: var(--teal-300);
+    background: var(--accent-active-bg);
+    border: $border-standard solid var(--accent-active-bg);
+    color: var(--accent-active);
   }
 
   &:hover:not(.active) {
@@ -78,7 +78,7 @@
 .endButton {
   background: $color-zinc-dark;
   border: $border-standard solid $color-zinc-dark;
-  color: var(--teal-300);
+  color: var(--accent-active);
   font-weight: 600;
   padding: var(--spacing-sm) var(--spacing-md);
   border-radius: $size-chat-border-radius;

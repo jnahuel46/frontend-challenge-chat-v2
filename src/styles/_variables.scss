@@ -6,7 +6,7 @@ body {
 // Color Variables
 :root {
   // Light theme colors
-  --bg-light: #ffffff;
+  --bg-light: #f9f9fb;
   --surface-light: #f8f9fa;
   --text-light: #1a1a1a;
   --text-secondary-light: #6b7280;
@@ -94,6 +94,8 @@ body {
   --text-primary: var(--text-light);
   --text-secondary: var(--text-secondary-light);
   --border-color: var(--border-light);
+  --accent-active: var(--teal-300);
+  --accent-active-bg: var(--teal-600);
 
   --mood-positive-bg: var(--mood-positive);
   --mood-positive-color: var(--mood-positive-text);
@@ -113,6 +115,8 @@ body {
   --text-primary: var(--text-dark);
   --text-secondary: var(--text-secondary-dark);
   --border-color: var(--border-dark);
+  --accent-active: var(--teal-300);
+  --accent-active-bg: #000000;
 
   --mood-positive-bg: var(--mood-positive-dark);
   --mood-positive-color: var(--mood-positive-text-dark);

@@ -29,7 +29,7 @@
   &.talk {
     background: $color-zinc-dark;
     border: $border-standard solid $color-zinc-dark;
-    color: var(--teal-300);
+    color: var(--accent-active);
 
     .icon {
       color: white;
@@ -45,7 +45,7 @@
   &.text {
     background: $color-zinc-dark;
     border: $border-standard solid $color-zinc-dark;
-    color: var(--teal-300);
+    color: var(--accent-active);
 
     .icon {
       color: white;

@@ -1,5 +1,6 @@
 # FL105 Frontend Take-Home Challenge
 ![Figma Design Preview](./design.png)
+Check the implentation logic ![Implementation](./IMPLEMENTATION.md)
 
 ## Overview
 This repository contains a take-home coding challenge focused on frontend development. The task is to build an interactive chat interface based on a provided Figma design. The challenge is designed to assess your ability to deliver a polished, responsive, and accessible UI with engaging micro-interactions.

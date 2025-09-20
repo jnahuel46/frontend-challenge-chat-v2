@@ -1,4 +1,6 @@
 # How I Built
+## Deploy URL https://frontend-challenge-chat.vercel.app/
+## URL Repo https://github.com/jnahuel46/frontend-challenge-chat
 
 ## Time Breakdown
 
@@ -18,6 +20,7 @@
 - **Design tokens**: Finally organized all those random colors and sizes that were scattered everywhere
 - **State management**: Zustand, much more simpler and faster
 - **A11y stuff**: Added the ARIA labels and keyboard nav that we always forget about
+- **GitHub Action**: Thinging on the future to have a great pipeline running automated tests
 
 ### Tech Choices
 
@@ -27,7 +30,7 @@
 - **Custom animations**: focus on the orbs (with more time ill be use a library)
 - **Mobile-first**: Based on the assumption that will be used for more users in mobile
 - **Jest**: Basic test implentation, with more time i could complete a 100% coverage
-- ![alt text](image-1.png)
+- ![Testing](./image-1.png)
 
 ## Problems I Had to Solve
 

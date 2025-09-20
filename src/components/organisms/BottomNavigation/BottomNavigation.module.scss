@@ -34,10 +34,10 @@
   }
 
   &.active {
-    color: var(--teal-300);
+    color: var(--accent-active);
 
     .label {
-      color: var(--teal-300);
+      color: var(--accent-active);
       font-weight: 600;
     }
   }
@@ -95,7 +95,7 @@
       left: 0;
       width: $size-sidebar-width;
       height: $size-sidebar-header;
-      background: var(--bg-primary);
+      background: $color-black-primary;
       border-right: $border-thin solid var(--teal-600);
       z-index: -1;
     }
